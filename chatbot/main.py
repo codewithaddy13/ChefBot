@@ -29,11 +29,7 @@ async def handle_request(request: Request):
     }
 
     return intent_handler_dict[intent](parameters, session_id)
-
-    
-        
-
-    
+   
 
 def track_order(parameters:dict, session_id:str):
         order_id = int(parameters['number'])
@@ -43,18 +39,6 @@ def track_order(parameters:dict, session_id:str):
             fulltext = f"The order status for the order {order_id} is '{status}' "
         else:
             fulltext = f"No order found with order ID '{order_id}' "
-
-        # return JSONResponse(content={
-        #     'fulfillmentMessages': [
-        #         {
-        #             'text': {
-        #                 'text': [
-        #                     fulltext
-        #                 ]
-        #             }
-        #         }
-        #     ]
-        # })
 
         return JSONResponse(content={
         "fulfillmentText": fulltext
@@ -81,18 +65,6 @@ def add_to_order(parameters:dict, session_id:str):
           order_str = helper.get_str_from_food_dict(inprogress_orders[session_id])
           fulltext = f"So far you have: {order_str}. Do you need anything else?"
           
-
-    #  return JSONResponse(content={
-    #         'fulfillmentMessages': [
-    #             {
-    #                 'text': {
-    #                     'text': [
-    #                         fulltext
-    #                     ]
-    #                 }
-    #             }
-    #         ]
-    #     })
 
      return JSONResponse(content={
         "fulfillmentText": fulltext
@@ -139,17 +111,7 @@ def complete_order(parameters: dict, session_id: str):
 
         del inprogress_orders[session_id]
 
-    # return JSONResponse(content={
-    #         'fulfillmentMessages': [
-    #             {
-    #                 'text': {
-    #                     'text': [
-    #                         fulltext
-    #                     ]
-    #                 }
-    #             }
-    #         ]
-    #     })
+    
     return JSONResponse(content={
         "fulfillmentText": fulltext
     })
@@ -195,17 +157,7 @@ def remove_from_order(parameters: dict, session_id: str):
         order_str = helper.get_str_from_food_dict(current_order)
         fulltext += f" Here is what is left in your order: {order_str}"
 
-    # return JSONResponse(content={
-    #         'fulfillmentMessages': [
-    #             {
-    #                 'text': {
-    #                     'text': [
-    #                         fulltext
-    #                     ]
-    #                 }
-    #             }
-    #         ]
-    #     })
+    
     return JSONResponse(content={
         "fulfillmentText": fulltext
     })
