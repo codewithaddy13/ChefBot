@@ -14,3 +14,5 @@ Steps to build:- <br>
 -> run the ngrok command in the same directory to generate the https URL corresponding to the localhost server http URL <br>
 -> ngrok command : ngrok http 8000 <br>
 -> paste the ngrok url generated in thee Dialogflow chatbot, under the 'Fulfillments' section by enabling the webhook permission <br>
+
+![Uploading image.png…]()
