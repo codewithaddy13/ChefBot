@@ -15,4 +15,4 @@ Steps to build:- <br>
 -> ngrok command : ngrok http 8000 <br>
 -> paste the ngrok url generated in thee Dialogflow chatbot, under the 'Fulfillments' section by enabling the webhook permission <br>
 
-![Uploading image.png…]()
+
