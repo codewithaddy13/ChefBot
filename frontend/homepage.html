@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Chatbot container styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            z-index: 9999; /* Ensure the chatbot stays on top of other elements */
+        }
+
+        .chatbot-container iframe {
+            width: 30%;
+            height: 60%;
+            border: none;
+            display: none;
+        }
+
+        .chatbot-container.open {
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            bottom: 20px; /* Ensure it stays in the bottom-right corner */
+            right: 20px; /* Ensure it stays in the bottom-right corner */
+        }
+
+        .chatbot-container.open iframe {
+            display: block;
+        }
+
+        /* Chat icon styles */
+        .chat-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #600b0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#home">HOME</a> |
+                <a href="#menu">MENU</a> |
+                <a href="#location">LOCATION</a> |
+                <a href="#aboutus">ABOUT US</a> |
+                <a href="#contactus">CONTACT US</a>
+            </nav>
+        </header>
+
+        <section id="home">
+            <img src="banner2.jpeg" alt="Banner Image">
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="grid-container">
+                <img src="menu1.jpg" alt="Menu item 1">
+                <img src="menu2.jpg" alt="Menu item 2">
+                <img src="menu3.jpg" alt="Menu item 3">
+            </div>
+        </section>
+
+        <section id="location">
+            <h2>Location</h2>
+            <p>38 George Town, Amsterdam</p>
+        </section>
+
+        <section id="contactus">
+            <h2>Contact Us</h2>
+            <p>Got questions? Want to place an order? Call us at +91855516103 or email us at mumskitchen@fastfood.com</p>
+        </section>
+
+        <!-- Chatbot -->
+        <div class="chatbot-container" onclick="toggleChatbot()">
+            <div class="chat-icon">💬</div>
+            <iframe class="chat-bot" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/236866a4-7192-40c4-9a4d-6cf04646658f">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatbot() {
+            const chatbot = document.querySelector('.chatbot-container');
+            chatbot.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
