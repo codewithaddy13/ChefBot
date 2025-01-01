@@ -1,6 +1,6 @@
 import mysql.connector
 
-conn = mysql.connector.connect(host="localhost", username="root", password="addysql@13", database="pandeyji_eatery")
+conn = mysql.connector.connect(host="localhost", username="root", password="****", database="******")
 
 
 def get_order_status(order_id:int):
